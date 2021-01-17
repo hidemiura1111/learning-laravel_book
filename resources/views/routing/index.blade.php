@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
+    <title>Routing/Index</title>
 </head>
 <body>
-    <h1>advanced/index</h1>
+    <h1>Routing/Index</h1>
     <p>{{ $msg }}</p>
 </body>
 </html>

@@ -9,8 +9,10 @@ use App\Http\Controllers\PersonController;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\RestdataController;
 use App\Http\Controllers\RoutingController;
+use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
 use App\Http\Middleware\Hello2Middleware;
+use App\Http\Middleware\GreetingMiddleware;
 
 
 /*
@@ -33,6 +35,18 @@ Route::get('/', function () {
 // Routing
 Route::get('/routing', [RoutingController::class, 'index'])->name('routing_home');
 Route::get('/routing/name_routing_test', [RoutingController::class, 'name_routing_test']);
+Route::get('/routing/where/{id}', [RoutingController::class, 'where'])->where('id', '[0-9]+');
+Route::middleware([GreetingMiddleware::class])->group(function() {
+    Route::get('/routing/hello', [RoutingController::class, 'hello']);
+    Route::get('/routing/bye', [RoutingController::class, 'bye']);
+});
+// it is not efficient in Laravel 8? Because controller was already set by 'use'.
+// Route::namespace('Namespace_test')->group(function() {
+    Route::get('/namespace', [NamespaceController::class, 'index']);
+    Route::get('/namespace/other', [NamespaceController::class, 'other']);
+// });
+Route::get('/routing/binding_model_route/{person}', [RoutingController::class, 'binding_model_route']);
+
 
 
 // Laravel getting started book
