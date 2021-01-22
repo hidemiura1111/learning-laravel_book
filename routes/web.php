@@ -10,6 +10,7 @@ use App\Http\Controllers\BoardController;
 use App\Http\Controllers\RestdataController;
 use App\Http\Controllers\RoutingController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
 use App\Http\Middleware\Hello2Middleware;
@@ -50,7 +51,8 @@ Route::get('/routing/binding_model_route/{person}', [RoutingController::class, '
 
 // Configuration and
 Route::get('/config', [ConfigController::class, 'index']);
-
+Route::get('/config/other', [ConfigController::class, 'other']);
+Route::get('/redirect', [RedirectController::class, 'index'])->name('redirect');
 
 
 // Laravel getting started book

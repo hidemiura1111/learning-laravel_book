@@ -4,13 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ConfigController extends Controller
+class RedirectController extends Controller
 {
-    function __construct()
-    {
-        config(['sample.message' => 'New message!']);
-    }
-
     public function index()
     {
         $sample_msg = config('sample.message');
@@ -20,10 +15,5 @@ class ConfigController extends Controller
             'data' => $sample_data
         ];
         return view('configs.index', $data);
-    }
-
-    public function other()
-    {
-        return redirect()->route('redirect');
     }
 }
