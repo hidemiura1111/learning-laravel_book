@@ -89,4 +89,31 @@ class StorageController extends Controller
         Storage::disk('local')->putFileAs('files', $request->file('file'), 'uploaded' . $ext);
         return redirect()->route('disk_storage');
     }
+
+    public function file_path()
+    {
+        $dir = '/';
+        $all = Storage::disk('local')->allFiles($dir);
+
+        $data = [
+            'msg' => 'DIR: ' . $dir,
+            'data' => $all
+        ];
+
+        return view('configs.index', $data);
+    }
+
+    public function logs_path()
+    {
+        $dir = '/';
+        $all = Storage::disk('logs')->allFiles($dir);
+
+        $data = [
+            'msg' => 'DIR: ' . $dir,
+            'data' => $all
+        ];
+
+        return view('configs.index', $data);
+    }
+
 }

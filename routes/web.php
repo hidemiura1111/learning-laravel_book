@@ -64,6 +64,8 @@ Route::get('/disk/{msg}', [StorageController::class, 'disk_put']);
 Route::get('/backup', [StorageController::class, 'backup']);
 Route::get('/download', [StorageController::class, 'download']);
 Route::post('/upload', [StorageController::class, 'upload']);
+Route::get('/file_path', [StorageController::class, 'file_path']);
+Route::get('/logs_path', [StorageController::class, 'logs_path']);
 
 
 // Laravel getting started book
