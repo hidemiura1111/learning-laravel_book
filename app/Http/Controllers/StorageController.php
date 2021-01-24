@@ -37,10 +37,18 @@ class StorageController extends Controller
 
     public function disk_index()
     {
-        $sample_msg = Storage::disk('public')->url($this->pub_fname);
+        $url = Storage::disk('public')->url($this->pub_fname);
+        $size = Storage::disk('public')->size($this->pub_fname);
+        $modified = Storage::disk('public')->LastModified($this->pub_fname);
+        $modified_time = date('y-m-d H:i:s', $modified);
+        $sample_keys = ['url', 'size', 'modified'];
+        $sample_meta = [$url, $size, $modified_time];
+        $result = '<table><tr><th>' . implode('</th><th>', $sample_keys) . '</th></tr>';
+        $result .= '<tr><td>' . implode('</td><td>', $sample_meta) . '</td></tr></table>';
+
         $sample_data = Storage::disk('public')->get($this->pub_fname);
         $data = [
-            'msg' => $sample_msg,
+            'msg' => $result,
             'data' => explode(PHP_EOL, $sample_data)
         ];
 
@@ -50,6 +58,35 @@ class StorageController extends Controller
     public function disk_put($msg)
     {
         Storage::disk('public')->prepend($this->pub_fname, $msg);
+        return redirect()->route('disk_storage');
+    }
+
+    public function backup()
+    {
+        if(Storage::disk('public')->exists('bk_' . $this->pub_fname)) {
+            Storage::disk('public')->delete('bk_' . $this->pub_fname);
+        }
+
+        Storage::disk('public')->copy($this->pub_fname, 'bk_' . $this->pub_fname);
+
+        if(Storage::disk('local')->exists('bk_' . $this->pub_fname)) {
+            Storage::disk('local')->delete('bk_' . $this->pub_fname);
+        }
+
+        Storage::disk('local')->move('public/bk_' . $this->pub_fname, 'bk_' . $this->pub_fname);
+
+        return redirect()->route('disk_storage');
+    }
+
+    public function download()
+    {
+        return Storage::disk('public')->download($this->pub_fname);
+    }
+
+    public function upload(Request $request)
+    {
+        $ext = '.' . $request->file('file')->extension();
+        Storage::disk('local')->putFileAs('files', $request->file('file'), 'uploaded' . $ext);
         return redirect()->route('disk_storage');
     }
 }
