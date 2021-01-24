@@ -12,6 +12,7 @@ use App\Http\Controllers\RoutingController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\StorageController;
+use App\Http\Controllers\ReqResController;
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
 use App\Http\Middleware\Hello2Middleware;
@@ -66,6 +67,11 @@ Route::get('/download', [StorageController::class, 'download']);
 Route::post('/upload', [StorageController::class, 'upload']);
 Route::get('/file_path', [StorageController::class, 'file_path']);
 Route::get('/logs_path', [StorageController::class, 'logs_path']);
+
+// Request and Response
+Route::get('/req_res', [ReqResController::class, 'index']);
+Route::post('/req_res', [ReqResController::class, 'index']);
+
 
 
 // Laravel getting started book
