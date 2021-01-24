@@ -69,8 +69,11 @@ Route::get('/file_path', [StorageController::class, 'file_path']);
 Route::get('/logs_path', [StorageController::class, 'logs_path']);
 
 // Request and Response
-Route::get('/req_res', [ReqResController::class, 'index']);
-Route::post('/req_res', [ReqResController::class, 'index']);
+Route::get('/req_res/response', [ReqResController::class, 'response']);
+Route::post('/req_res/response', [ReqResController::class, 'response']);
+Route::get('/req_res/req_only', [ReqResController::class, 'req_only']);
+Route::post('/req_res/req_only', [ReqResController::class, 'req_only']);
+
 
 
 

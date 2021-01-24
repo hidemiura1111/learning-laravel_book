@@ -9,7 +9,7 @@
 <body>
     <h1>Hello Request and Response/Index</h1>
     <p>{!! $msg !!}</p>
-    <form action="/req_res" method="post">
+    <form action="{{ '/' . request()->path() }}" method="post">
         @csrf
         <div>NAME: <input type="text" name="name"></div>
         <div>MAIL: <input type="text" name="mail"></div>
