@@ -26,4 +26,15 @@ class ConfigController extends Controller
     {
         return redirect()->route('redirect');
     }
+
+    public function env_val()
+    {
+        $sample_msg = env('SAMPLE_MESSAGE');
+        $sample_data = env('SAMPLE_DATA');
+        $data = [
+            'msg' => $sample_msg,
+            'data' => explode(',', $sample_data)
+        ];
+        return view('configs.index', $data);
+    }
 }

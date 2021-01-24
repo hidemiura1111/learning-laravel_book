@@ -11,6 +11,7 @@ use App\Http\Controllers\RestdataController;
 use App\Http\Controllers\RoutingController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\StorageController;
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
 use App\Http\Middleware\Hello2Middleware;
@@ -49,10 +50,17 @@ Route::middleware([GreetingMiddleware::class])->group(function() {
 // });
 Route::get('/routing/binding_model_route/{person}', [RoutingController::class, 'binding_model_route']);
 
-// Configuration and
+// Configuration and environment valuable
 Route::get('/config', [ConfigController::class, 'index']);
 Route::get('/config/other', [ConfigController::class, 'other']);
 Route::get('/redirect', [RedirectController::class, 'index'])->name('redirect');
+Route::get('/config/env_val', [ConfigController::class, 'env_val']);
+
+// Storage
+Route::get('/local_storage', [StorageController::class, 'index'])->name('storage');
+Route::get('/local_storage/{msg}', [StorageController::class, 'put']);
+Route::get('/disk', [StorageController::class, 'disk_index'])->name('disk_storage');
+Route::get('/disk/{msg}', [StorageController::class, 'disk_put']);
 
 
 // Laravel getting started book
