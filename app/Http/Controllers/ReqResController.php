@@ -41,11 +41,13 @@ class ReqResController extends Controller
             $form = $request->only('name', 'mail');
             $keys = array_keys($form);
             $values = array_values($form);
+            $msg = old('name') . ', ' . old('mail') . ', ' . old('tel');
             $data = [
                 'msg' => 'Inputted',
                 'keys' => $keys,
                 'values' => $values,
             ];
+            $request->flash();
             return view('req_res.index', $data);
         }
         $data = [
@@ -53,6 +55,7 @@ class ReqResController extends Controller
             'keys' => $keys,
             'values' => $values,
         ];
+        $request->flash();
         return view('req_res.index', $data);
     }
 }
