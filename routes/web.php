@@ -73,8 +73,9 @@ Route::get('/req_res/response', [ReqResController::class, 'response']);
 Route::post('/req_res/response', [ReqResController::class, 'response']);
 Route::get('/req_res/req_only', [ReqResController::class, 'req_only']);
 Route::post('/req_res/req_only', [ReqResController::class, 'req_only']);
-
-
+Route::get('/req_res/query', [ReqResController::class, 'query'])->name('query');
+Route::post('/req_res/query', [ReqResController::class, 'query']);
+Route::get('/req_res/query/add_query', [ReqResController::class, 'add_query']);
 
 
 // Laravel getting started book
