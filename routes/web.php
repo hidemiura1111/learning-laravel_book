@@ -13,6 +13,7 @@ use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\ReqResController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
 use App\Http\Middleware\Hello2Middleware;
@@ -76,6 +77,10 @@ Route::post('/req_res/req_only', [ReqResController::class, 'req_only']);
 Route::get('/req_res/query', [ReqResController::class, 'query'])->name('query');
 Route::post('/req_res/query', [ReqResController::class, 'query']);
 Route::get('/req_res/query/add_query', [ReqResController::class, 'add_query']);
+
+// Service and Middleware
+Route::get('/service/myservice', [ServiceController::class, 'my_service']);
+
 
 
 // Laravel getting started book
