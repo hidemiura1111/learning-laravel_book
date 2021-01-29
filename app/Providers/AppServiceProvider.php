@@ -28,7 +28,8 @@ class AppServiceProvider extends ServiceProvider
             'sample.data' => ['Eins', 'Zwei', 'Drei']
         ]);
 
-        app()->bind('App\MyClasses\MyService', function ($app) {
+        // app()->bind('App\MyClasses\MyService', function ($app) {
+        app()->singleton('App\MyClasses\MyService', function ($app) {
             $myService = new MyService();
             $myService->setId(0);
             return $myService;
