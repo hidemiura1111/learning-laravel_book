@@ -5,6 +5,7 @@ use PhpParser\Builder\Class_;
 
 Class MyService
 {
+    private $serial;
     private $id = -1;
     private $msg = 'No ID...';
     private $data = ['hello', 'welcome', 'bye'];
@@ -15,6 +16,9 @@ Class MyService
         //     $this->id = $id;
         //     $this->msg = 'select: ' . $this->data[$id];
         // }
+
+        $this->serial = rand();
+        echo "[" . $this->serial . "]";
     }
 
     public function setId($id)

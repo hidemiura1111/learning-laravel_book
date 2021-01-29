@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    function __construct(MyService $myService)
+    {
+        $myService = app('App\MyClasses\MyService');
+    }
+
     // public function my_service(MyService $myService) // Make MyService instance by argument
     public function my_service(MyService $myService, int $id = -1)
     {
