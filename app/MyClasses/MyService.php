@@ -17,6 +17,7 @@ Class MyService
         //     $this->msg = 'select: ' . $this->data[$id];
         // }
 
+        $this->setId($id);
         $this->serial = rand();
         echo "[" . $this->serial . "]";
     }

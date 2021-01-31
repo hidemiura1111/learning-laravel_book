@@ -28,11 +28,16 @@ class AppServiceProvider extends ServiceProvider
             'sample.data' => ['Eins', 'Zwei', 'Drei']
         ]);
 
+        // Bind and singleton
         // app()->bind('App\MyClasses\MyService', function ($app) {
-        app()->singleton('App\MyClasses\MyService', function ($app) {
-            $myService = new MyService();
-            $myService->setId(0);
-            return $myService;
-        });
+        // app()->singleton('App\MyClasses\MyService', function ($app) {
+        //     $myService = new MyService();
+        //     $myService->setId(0);
+        //     return $myService;
+        // });
+
+        app()->when('App\MyClasses\MyService')
+            ->needs('$id')
+            ->give(2);
     }
 }

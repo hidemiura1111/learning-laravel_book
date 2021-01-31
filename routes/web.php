@@ -82,7 +82,6 @@ Route::get('/req_res/query/add_query', [ReqResController::class, 'add_query']);
 Route::get('/service/myservice/{id?}', [ServiceController::class, 'my_service']);
 
 
-
 // Laravel getting started book
 // Component
 Route::get('/array/show/{id1?}', [ArrayController::class, 'show']);
