@@ -41,6 +41,10 @@ class AppServiceProvider extends ServiceProvider
         //     ->needs('$id')
         //     ->give(2);
 
+        // Bind MyServiceInterface as MyService
         app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\MyService');
+
+        // Bind MyServiceInterface as PowerMyService
+        app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
     }
 }
