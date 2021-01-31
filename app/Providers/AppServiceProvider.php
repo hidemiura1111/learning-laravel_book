@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\MyClasses\MyService;
+use App\MyClasses\PowerMyService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -42,9 +43,24 @@ class AppServiceProvider extends ServiceProvider
         //     ->give(2);
 
         // Bind MyServiceInterface as MyService
-        app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\MyService');
+        // app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\MyService');
 
         // Bind MyServiceInterface as PowerMyService
-        app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
+        // app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
+
+        // Show Bind events and objects by resolving
+        app()->resolving(function ($obj, $app) {
+            if (is_object($obj)) {
+                echo get_class($obj) . '<br>';
+            } else {
+                echo $obj . '<br>';
+            }
+        });
+        app()->resolving(PowerMyService::class, function ($obj, $app) {
+            $newdata = ['Push Up', 'Chin Up', 'Dipps', 'Leg Up'];
+            $obj->setData($newdata);
+            $obj->setId(rand(0, count($newdata)));
+        });
+        app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
     }
 }
