@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\MyClasses\MyService;
+// use App\MyClasses\MyService;
 use Illuminate\Http\Request;
 use App\MyClasses\MyServiceInterface;
+use App\Facades\MyService;
 
 class ServiceController extends Controller
 {
@@ -26,8 +27,11 @@ class ServiceController extends Controller
         // Make instance with argument
         // $myService = app()->makewith('App\MyClasses\MyService', ['id' => $id]);
 
-        // Set ID in AppServiceProvider::boot()
-        $myService->setId($id);
+        // Set ID in AppServiceProvider::boot() or MyServiceProvider
+        // $myService->setId($id);
+
+        // Set ID by using Facade
+        MyService::setId($id);
         $data = [
             'msg' => $myService->say(),
             'data' => $myService->alldata()
