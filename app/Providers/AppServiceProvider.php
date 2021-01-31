@@ -36,8 +36,11 @@ class AppServiceProvider extends ServiceProvider
         //     return $myService;
         // });
 
-        app()->when('App\MyClasses\MyService')
-            ->needs('$id')
-            ->give(2);
+        // Bind with argument
+        // app()->when('App\MyClasses\MyService')
+        //     ->needs('$id')
+        //     ->give(2);
+
+        app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\MyService');
     }
 }

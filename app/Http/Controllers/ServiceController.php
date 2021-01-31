@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use App\MyClasses\MyService;
 use Illuminate\Http\Request;
+use App\MyClasses\MyServiceInterface;
 
 class ServiceController extends Controller
 {
     function __construct(MyService $myService)
+    // function __construct()
     {
         $myService = app('App\MyClasses\MyService');
     }
 
     // public function my_service(MyService $myService) // Make MyService instance by argument
-    public function my_service(MyService $myService, int $id = -1)
+    // public function my_service(MyService $myService, int $id = -1)
+    public function my_service(MyServiceInterface $myService, int $id = -1)
     {
         // Make MyService instance. which are same.
         // $myService = app('App\MyClasses\MyService');

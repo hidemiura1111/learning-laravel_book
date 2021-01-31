@@ -3,7 +3,7 @@ namespace App\MyClasses;
 
 use PhpParser\Builder\Class_;
 
-Class MyService
+Class MyService implements MyServiceInterface
 {
     private $serial;
     private $id = -1;
