@@ -49,18 +49,18 @@ class AppServiceProvider extends ServiceProvider
         // app()->bind('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
 
         // Show Bind events and objects by resolving
-        app()->resolving(function ($obj, $app) {
-            if (is_object($obj)) {
-                echo get_class($obj) . '<br>';
-            } else {
-                echo $obj . '<br>';
-            }
-        });
-        app()->resolving(PowerMyService::class, function ($obj, $app) {
-            $newdata = ['Push Up', 'Chin Up', 'Dipps', 'Leg Up'];
-            $obj->setData($newdata);
-            $obj->setId(rand(0, count($newdata)));
-        });
-        app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
+        // app()->resolving(function ($obj, $app) {
+        //     if (is_object($obj)) {
+        //         echo get_class($obj) . '<br>';
+        //     } else {
+        //         echo $obj . '<br>';
+        //     }
+        // });
+        // app()->resolving(PowerMyService::class, function ($obj, $app) {
+        //     $newdata = ['Push Up', 'Chin Up', 'Dipps', 'Leg Up'];
+        //     $obj->setData($newdata);
+        //     $obj->setId(rand(0, count($newdata)));
+        // });
+        // app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
     }
 }

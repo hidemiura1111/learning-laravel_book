@@ -8,10 +8,10 @@ use App\MyClasses\MyServiceInterface;
 
 class ServiceController extends Controller
 {
-    function __construct(MyService $myService)
-    // function __construct()
+    // function __construct(MyService $myService)
+    function __construct()
     {
-        $myService = app('App\MyClasses\MyService');
+        // $myService = app('App\MyClasses\MyService');
     }
 
     // public function my_service(MyService $myService) // Make MyService instance by argument
