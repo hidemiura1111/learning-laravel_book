@@ -28,10 +28,8 @@ class ServiceController extends Controller
         // $myService = app()->makewith('App\MyClasses\MyService', ['id' => $id]);
 
         // Set ID in AppServiceProvider::boot() or MyServiceProvider
-        // $myService->setId($id);
+        $myService->setId($id);
 
-        // Set ID by using Facade
-        MyService::setId($id);
         $data = [
             'msg' => $myService->say(),
             'data' => $myService->alldata()
