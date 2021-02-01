@@ -177,7 +177,7 @@ return [
 
         App\Providers\HelloServiceProvider::class,
 
-        //
+        // Test provider code
         App\Providers\MyServiceProvider::class,
     ],
 
