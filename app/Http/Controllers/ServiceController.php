@@ -39,4 +39,14 @@ class ServiceController extends Controller
 
         return view('service.index', $data);
     }
+
+    public function test_mdware(Request $request)
+    {
+        $data = [
+            'msg' => $request->msg,
+            'data' => $request->alldata,
+        ];
+
+        return view('service.index', $data);
+    }
 }
