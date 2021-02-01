@@ -40,6 +40,18 @@ class ServiceController extends Controller
         return view('service.index', $data);
     }
 
+    public function test_facade(MyServiceInterface $myService, int $id = -1)
+    {
+        // Possible to call MyService directly by Facade
+        MyService::setId($id);
+        $data = [
+            'msg' => $myService->say(),
+            'data' => $myService->alldata()
+        ];
+
+        return view('service.index', $data);
+    }
+
     public function test_mdware(Request $request)
     {
         $data = [

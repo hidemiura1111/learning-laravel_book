@@ -13,8 +13,10 @@ class MyServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Bind Facade and Interface
         app()->singleton('myservice', 'App\MyClasses\PowerMyService');
         app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
+
         // Confirm to display register
         // echo "<b>MyServiceProvider/register</b><br>";
     }

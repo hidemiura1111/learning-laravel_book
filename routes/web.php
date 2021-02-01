@@ -80,6 +80,7 @@ Route::get('/req_res/query/add_query', [ReqResController::class, 'add_query']);
 
 // Service and Middleware
 Route::get('/service/myservice/{id?}', [ServiceController::class, 'my_service']);
+Route::get('/facade', [ServiceController::class, 'test_facade']);
 Route::get('/mdware/my_middleware', [ServiceController::class, 'test_mdware'])->middleware(App\Http\Middleware\MyMiddleware::class);
 Route::get('/mdware/my_middleware/{id}', [ServiceController::class, 'test_mdware'])->middleware(App\Http\Middleware\MyMiddleware::class);
 
