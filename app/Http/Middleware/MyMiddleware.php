@@ -17,6 +17,7 @@ class MyMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        // Before
         $id = rand(0, count(MyService::allData()));
         MyService::setId($id);
         $merge_data = [
@@ -26,6 +27,22 @@ class MyMiddleware
         ];
         $request->merge($merge_data);
 
-        return $next($request);
+        $response = $next($request);
+
+        // After
+        $content = $response->content();
+        $content .= "
+            <style>
+                body { background-color: #bef; }
+                p { font-size: 18px; }
+                li { cplor: red; font-weight:bold }
+            </style>
+        ";
+        $response->setContent($content);
+
+        return $response;
+
+
+
     }
 }
