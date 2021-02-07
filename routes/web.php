@@ -14,6 +14,8 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\ReqResController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Db2Controller;
+
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
 use App\Http\Middleware\Hello2Middleware;
@@ -41,14 +43,14 @@ Route::get('/', function () {
 Route::get('/routing', [RoutingController::class, 'index'])->name('routing_home');
 Route::get('/routing/name_routing_test', [RoutingController::class, 'name_routing_test']);
 Route::get('/routing/where/{id}', [RoutingController::class, 'where'])->where('id', '[0-9]+');
-Route::middleware([GreetingMiddleware::class])->group(function() {
+Route::middleware([GreetingMiddleware::class])->group(function () {
     Route::get('/routing/hello', [RoutingController::class, 'hello']);
     Route::get('/routing/bye', [RoutingController::class, 'bye']);
 });
 // it is not efficient in Laravel 8? Because controller was already set by 'use'.
 // Route::namespace('Namespace_test')->group(function() {
-    Route::get('/namespace', [NamespaceController::class, 'index']);
-    Route::get('/namespace/other', [NamespaceController::class, 'other']);
+Route::get('/namespace', [NamespaceController::class, 'index']);
+Route::get('/namespace/other', [NamespaceController::class, 'other']);
 // });
 Route::get('/routing/binding_model_route/{person}', [RoutingController::class, 'binding_model_route']);
 
@@ -83,6 +85,9 @@ Route::get('/service/myservice/{id?}', [ServiceController::class, 'my_service'])
 Route::get('/facade', [ServiceController::class, 'test_facade']);
 Route::get('/mdware/my_middleware', [ServiceController::class, 'test_mdware'])->middleware(App\Http\Middleware\MyMiddleware::class);
 Route::get('/mdware/my_middleware/{id}', [ServiceController::class, 'test_mdware'])->middleware(App\Http\Middleware\MyMiddleware::class);
+
+// DB query
+Route::get('/database2/{id?}', [Db2Controller::class, 'index']);
 
 
 // Laravel getting started book
