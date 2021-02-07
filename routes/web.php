@@ -89,7 +89,7 @@ Route::get('/mdware/my_middleware/{id}', [ServiceController::class, 'test_mdware
 // DB query
 Route::get('/database2/query/{id?}', [Db2Controller::class, 'query']);
 Route::get('/database2/chunk/{id?}', [Db2Controller::class, 'chunk']);
-
+Route::get('/database2/where/{id?}', [Db2Controller::class, 'where']);
 
 // Laravel getting started book
 // Component

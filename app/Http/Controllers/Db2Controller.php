@@ -97,4 +97,23 @@ class Db2Controller extends Controller
 
         return view('database2.index', $data);
     }
+
+    public function where($id)
+    {
+        $ids = explode(',', $id);
+        $msg = 'Get people: ';
+
+        // where between a to b
+        // $result = DB::table('people')->whereBetween('id', $ids)->get();
+
+        // where a, b c and...
+        $result = DB::table('people')->whereIn('id', $ids)->get();
+
+        $data = [
+            'msg' => $msg,
+            'data' => $result,
+        ];
+
+        return view('database2.index', $data);
+    }
 }
