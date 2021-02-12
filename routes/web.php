@@ -93,7 +93,7 @@ Route::get('/database2/chunk/{id?}', [Db2Controller::class, 'chunk']);
 Route::get('/database2/where/{id?}', [Db2Controller::class, 'where']);
 
 // Paginate
-Route::get('/pagination/paginate/{id?}', [PaginationController::class, 'paginate']);
+Route::get('/pagination/paginate', [PaginationController::class, 'paginate']);
 
 
 // Laravel getting started book
