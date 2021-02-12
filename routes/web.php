@@ -15,6 +15,7 @@ use App\Http\Controllers\StorageController;
 use App\Http\Controllers\ReqResController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Db2Controller;
+use App\Http\Controllers\PaginationController;
 
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
@@ -90,6 +91,10 @@ Route::get('/mdware/my_middleware/{id}', [ServiceController::class, 'test_mdware
 Route::get('/database2/query/{id?}', [Db2Controller::class, 'query']);
 Route::get('/database2/chunk/{id?}', [Db2Controller::class, 'chunk']);
 Route::get('/database2/where/{id?}', [Db2Controller::class, 'where']);
+
+// Paginate
+Route::get('/pagination/paginate/{id?}', [PaginationController::class, 'paginate']);
+
 
 // Laravel getting started book
 // Component
