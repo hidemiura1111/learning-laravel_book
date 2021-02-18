@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Person;
 
 class PaginationController extends Controller
 {
@@ -12,7 +12,13 @@ class PaginationController extends Controller
     {
         $id = $request->query('page');
         $msg = 'Show page: ' . $id;
+
+        // paginate from DB method
         $result = DB::table('people')->paginate(3, ['*'], 'page', $id);
+        // Paginate only previous and next
+        // $result = DB::table('people')->simplePaginate(3);
+        // Use Eloquent
+        // $result = Person::paginate(3);
 
         $data = [
             'msg' => $msg,
