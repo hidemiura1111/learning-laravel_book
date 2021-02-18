@@ -94,7 +94,7 @@ Route::get('/database2/where/{id?}', [Db2Controller::class, 'where']);
 
 // Paginate
 Route::get('/pagination/paginate', [PaginationController::class, 'paginate']);
-
+Route::get('/pagination/mypaginate', [PaginationController::class, 'myPaginate']);
 
 // Laravel getting started book
 // Component

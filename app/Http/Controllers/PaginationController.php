@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Person;
+use App\Http\Pagination\MyPaginator;
 
 class PaginationController extends Controller
 {
@@ -25,5 +26,21 @@ class PaginationController extends Controller
             'data' => $result,
         ];
         return view('pagination.index', $data);
+    }
+
+    public function myPaginate(Request $request)
+    {
+        $id = $request->query('page');
+        $msg = 'Show page: ' . $id;
+        $result = Person::paginate(3);
+
+        $paginator = new MyPaginator($result);
+
+        $data = [
+            'msg' => $msg,
+            'data' => $result,
+            'paginator' => $paginator,
+        ];
+        return view('pagination.my_paginate', $data);
     }
 }
