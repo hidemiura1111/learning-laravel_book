@@ -99,6 +99,12 @@ Route::get('/pagination/mypaginate', [PaginationController::class, 'myPaginate']
 
 // Eloquent and collection
 Route::get('/collection', [CollectionController::class, 'index']);
+Route::get('/collection/reject', [CollectionController::class, 'reject']);
+Route::get('/collection/filter', [CollectionController::class, 'filter']);
+Route::get('/collection/diff', [CollectionController::class, 'diff']);
+Route::get('/collection/only', [CollectionController::class, 'only']);
+Route::get('/collection/except', [CollectionController::class, 'except']);
+Route::get('/collection/merge', [CollectionController::class, 'merge']);
 
 
 // Laravel getting started book
