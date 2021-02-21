@@ -117,4 +117,23 @@ class CollectionController extends Controller
 
         return view('collection.index', $data);
     }
+
+        public function unique(Request $request)
+    {
+        $msg = 'Show people records.';
+        $even_id = Person::get()->filter(function($item) {
+            return $item->id % 2 == 0;
+        });
+        $even_age = Person::get()->filter(function($item) {
+            return $item->age % 2 == 0;
+        });
+        // Get merged data
+        $result = $even_id->unique($even_age);
+        $data = [
+            'msg' => $msg,
+            'data' => $result,
+        ];
+
+        return view('collection.index', $data);
+    }
 }

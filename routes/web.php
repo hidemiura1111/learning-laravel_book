@@ -105,6 +105,7 @@ Route::get('/collection/diff', [CollectionController::class, 'diff']);
 Route::get('/collection/only', [CollectionController::class, 'only']);
 Route::get('/collection/except', [CollectionController::class, 'except']);
 Route::get('/collection/merge', [CollectionController::class, 'merge']);
+Route::get('/collection/unique', [CollectionController::class, 'unique']);
 
 
 // Laravel getting started book
