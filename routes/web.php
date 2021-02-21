@@ -16,6 +16,7 @@ use App\Http\Controllers\ReqResController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Db2Controller;
 use App\Http\Controllers\PaginationController;
+use App\Http\Controllers\CollectionController;
 
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
@@ -95,6 +96,10 @@ Route::get('/database2/where/{id?}', [Db2Controller::class, 'where']);
 // Paginate
 Route::get('/pagination/paginate', [PaginationController::class, 'paginate']);
 Route::get('/pagination/mypaginate', [PaginationController::class, 'myPaginate']);
+
+// Eloquent and collection
+Route::get('/collection', [CollectionController::class, 'index']);
+
 
 // Laravel getting started book
 // Component
