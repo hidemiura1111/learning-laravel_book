@@ -118,7 +118,7 @@ class CollectionController extends Controller
         return view('collection.index', $data);
     }
 
-        public function unique(Request $request)
+    public function unique(Request $request)
     {
         $msg = 'Show people records.';
         $even_id = Person::get()->filter(function($item) {
@@ -132,6 +132,25 @@ class CollectionController extends Controller
         $data = [
             'msg' => $msg,
             'data' => $result,
+        ];
+
+        return view('collection.index', $data);
+    }
+
+    public function map(Request $request)
+    {
+        $msg = 'Show people records.';
+        $even = Person::get()->filter(function($item) {
+            return $item->id % 2 == 0;
+        });
+
+        $map = $even->map(function($item, $key) {
+            return $item->id . ':' . $item->name;
+        });
+
+        $data = [
+            'msg' => $map,
+            'data' => $even,
         ];
 
         return view('collection.index', $data);
