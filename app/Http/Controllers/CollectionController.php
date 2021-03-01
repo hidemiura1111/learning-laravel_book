@@ -181,4 +181,20 @@ class CollectionController extends Controller
 
         return view('collection.accessor', $data);
     }
+
+    public function save($id, $name)
+    {
+        $record = Person::find($id);
+        $record->name = $name;
+        $record->save();
+        return redirect()->route('collection');
+    }
+
+    public function sample_add()
+    {
+        $person = new Person;
+        $person->all_data = ['sample', 'sample@test.com', 55];
+        $person->save();
+        return redirect()->route('collection');
+    }
 }

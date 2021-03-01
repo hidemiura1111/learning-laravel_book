@@ -98,7 +98,7 @@ Route::get('/pagination/paginate', [PaginationController::class, 'paginate']);
 Route::get('/pagination/mypaginate', [PaginationController::class, 'myPaginate']);
 
 // Eloquent and collection
-Route::get('/collection', [CollectionController::class, 'index']);
+Route::get('/collection', [CollectionController::class, 'index'])->name('collection');
 Route::get('/collection/reject', [CollectionController::class, 'reject']);
 Route::get('/collection/filter', [CollectionController::class, 'filter']);
 Route::get('/collection/diff', [CollectionController::class, 'diff']);
@@ -109,7 +109,8 @@ Route::get('/collection/unique', [CollectionController::class, 'unique']);
 Route::get('/collection/map', [CollectionController::class, 'map']);
 Route::get('/collection/custom_collection/fields', [CollectionController::class, 'fields']);
 Route::get('/collection/accessor', [CollectionController::class, 'accessor']);
-
+Route::get('/collection/mutator/save/{id}/{name}', [CollectionController::class, 'save']);
+Route::get('/collection/mutator/sample_add', [CollectionController::class, 'sample_add']);
 
 
 // Laravel getting started book
