@@ -111,6 +111,8 @@ Route::get('/collection/custom_collection/fields', [CollectionController::class,
 Route::get('/collection/accessor', [CollectionController::class, 'accessor']);
 Route::get('/collection/mutator/save/{id}/{name}', [CollectionController::class, 'save']);
 Route::get('/collection/mutator/sample_add', [CollectionController::class, 'sample_add']);
+Route::get('/collection/json/{id?}', [CollectionController::class, 'json']);
+Route::get('/collection/json_show', [CollectionController::class, 'json_show']);
 
 
 // Laravel getting started book

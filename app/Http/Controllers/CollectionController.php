@@ -197,4 +197,18 @@ class CollectionController extends Controller
         $person->save();
         return redirect()->route('collection');
     }
+
+    public function json($id = -1)
+    {
+        if($id === -1) {
+            return Person::get()->toJson();
+        } else {
+            return Person::find($id)->toJson();
+        }
+    }
+
+    public function json_show()
+    {
+        return view('collection.json_show');
+    }
 }
