@@ -107,6 +107,9 @@ Route::get('/collection/except', [CollectionController::class, 'except']);
 Route::get('/collection/merge', [CollectionController::class, 'merge']);
 Route::get('/collection/unique', [CollectionController::class, 'unique']);
 Route::get('/collection/map', [CollectionController::class, 'map']);
+Route::get('/collection/custom_collection/fields', [CollectionController::class, 'fields']);
+Route::get('/collection/accessor', [CollectionController::class, 'accessor']);
+
 
 
 // Laravel getting started book

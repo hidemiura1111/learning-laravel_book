@@ -155,4 +155,30 @@ class CollectionController extends Controller
 
         return view('collection.index', $data);
     }
+
+    public function fields()
+    {
+        $result = Person::get();
+        $fields = Person::get()->fields();
+
+        $data = [
+            'msg' => implode(', ', $fields),
+            'data' => $result,
+        ];
+
+        return view('collection.index', $data);
+    }
+
+    public function accessor()
+    {
+        $msg = 'Show people records.';
+        $result = Person::get();
+
+        $data = [
+            'msg' => $msg,
+            'data' => $result,
+        ];
+
+        return view('collection.accessor', $data);
+    }
 }
