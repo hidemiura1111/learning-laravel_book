@@ -115,7 +115,7 @@ Route::get('/collection/mutator/sample_add', [CollectionController::class, 'samp
 Route::get('/collection/json/{id?}', [CollectionController::class, 'json']);
 Route::get('/collection/json_show', [CollectionController::class, 'json_show']);
 
-// Search by Scout
+// Search by Scout (TNT Search does not work with MySQL, SQLite is needed.)
 Route::get('/scout', [ScoutController::class, 'index']);
 Route::post('/scout', [ScoutController::class, 'send']);
 

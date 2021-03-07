@@ -179,6 +179,9 @@ return [
 
         // Test provider code
         App\Providers\MyServiceProvider::class,
+
+        Laravel\Scout\ScoutServiceProvider::class,
+        TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
     ],
 
     /*

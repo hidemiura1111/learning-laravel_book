@@ -10,6 +10,7 @@ class ScoutController extends Controller
     public function index()
     {
         $msg = 'Show people record.';
+        // Person::get(['*'])->searchable();
         $result = Person::get();
 
         $data = [
