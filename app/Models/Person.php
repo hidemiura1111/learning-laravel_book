@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use App\Scopes\ScopePerson;
 use Illuminate\Database\Eloquent\Collection;
+use Laravel\Scout\Searchable;
 
 class Person extends Model
 {
     use HasFactory;
+    use Searchable;
 
     protected $guarded = array('id');
 

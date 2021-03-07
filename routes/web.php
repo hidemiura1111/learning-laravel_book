@@ -17,6 +17,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Db2Controller;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\ScoutController;
 
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
@@ -113,6 +114,11 @@ Route::get('/collection/mutator/save/{id}/{name}', [CollectionController::class,
 Route::get('/collection/mutator/sample_add', [CollectionController::class, 'sample_add']);
 Route::get('/collection/json/{id?}', [CollectionController::class, 'json']);
 Route::get('/collection/json_show', [CollectionController::class, 'json_show']);
+
+// Search by Scout
+Route::get('/scout', [ScoutController::class, 'index']);
+Route::post('/scout', [ScoutController::class, 'send']);
+
 
 
 // Laravel getting started book
