@@ -23,9 +23,9 @@ class EventServiceProvider extends ServiceProvider
         // ],
     ];
 
-    protected $subscribe = [
-        'App\Listeners\MyEventSubscriber',
-    ];
+    // protected $subscribe = [
+    //     'App\Listeners\MyEventSubscriber',
+    // ];
 
     /**
      * Register any events for your application.
@@ -35,5 +35,10 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+    }
+
+    public function shouldDiscoverEvents()
+    {
+        return true;
     }
 }
