@@ -18,6 +18,8 @@ use App\Http\Controllers\Db2Controller;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ScoutController;
+use App\Http\Controllers\JobController;
+
 
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
@@ -119,6 +121,11 @@ Route::get('/collection/json_show', [CollectionController::class, 'json_show']);
 Route::get('/scout', [ScoutController::class, 'index']);
 Route::post('/scout', [ScoutController::class, 'send']);
 
+// Queue and Job
+Route::get('/job', [JobController::class, 'index']);
+Route::post('/job', [JobController::class, 'send']);
+Route::get('/job/suffix/{person?}', [JobController::class, 'suffix']);
+Route::get('/job/even_odd/{person?}', [JobController::class, 'even_odd']);
 
 
 // Laravel getting started book
