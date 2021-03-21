@@ -25,7 +25,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->exec('./mycmd.sh');
+
+        // Exec Shell file by php artisan schedule:run
+        // $schedule->exec('./mycmd.sh');
+
+        // Exec artisan command by php artisan schedule:run
+        // In this case, exec queue
+        $schedule->command('queue:work --stop-when-empty');
     }
 
     /**
