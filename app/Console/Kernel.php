@@ -46,8 +46,17 @@ class Kernel extends ConsoleKernel
         //     MyJob::dispatch($person);
         // });
 
-        $obj = new ScheduleObj($id);
-        $schedule->call($obj);
+        // Execute Class
+        // $obj = new ScheduleObj($id);
+        // $schedule->call($obj);
+
+        // Execute Instance
+        $schedule->call(new MyJob($id));
+
+        // Dispatch
+        // $schedule->call(function() use ($id) {
+        //     MyJob::dispatch($id);
+        // });
     }
 
     /**
