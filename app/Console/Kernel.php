@@ -4,6 +4,8 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\Person;
+use App\Jobs\MyJob;
 
 class Kernel extends ConsoleKernel
 {
@@ -31,7 +33,15 @@ class Kernel extends ConsoleKernel
 
         // Exec artisan command by php artisan schedule:run
         // In this case, exec queue
-        $schedule->command('queue:work --stop-when-empty');
+        // $schedule->command('queue:work --stop-when-empty');
+
+        $count = Person::all()->count();
+        $id = rand(0, $count) + 1;
+        $schedule->call(function() use ($id) {
+            $person = Person::find($id);
+            // Person::find($id)->delete();
+            MyJob::dispatch($person);
+        });
     }
 
     /**
