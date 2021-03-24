@@ -135,6 +135,9 @@ Route::post('/event', [EventController::class, 'send']);
 
 // Vue
 Route::get('/vue', [VueController::class, 'index']);
+Route::get('/vue/json', [VueController::class, 'json']);
+Route::get('/vue/json/{id?}', [VueController::class, 'json']);
+
 
 
 
