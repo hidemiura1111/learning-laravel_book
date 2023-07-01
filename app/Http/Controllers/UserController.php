@@ -13,7 +13,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
-    {
+    {        
         $users = User::all();
 
         return response()->json([
