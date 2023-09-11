@@ -21,7 +21,8 @@ use App\Http\Controllers\ScoutController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\VueController;
-
+use App\Http\Controllers\HorizonController;
+use App\Http\Controllers\MailSendController;
 
 use App\Http\Controllers\Namespace_test\NamespaceController;
 use App\Http\Middleware\HelloMiddleware;
@@ -43,6 +44,10 @@ use App\Http\Middleware\GreetingMiddleware;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Laracast Laravel Horizon
+Route::get('/horizon/redis_test', [HorizonController::class, 'redis_test']);
+Route::get('/mail', [MailSendController::class, 'send']);
 
 
 // Laravel advanced book
