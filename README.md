@@ -16,3 +16,15 @@ Unit Test
 ```
 php artisan test --filter ExampleTest
 ```
+
+### Env Note
+| Tool    | URL                    |
+| ------- | ---------------------- |
+| system  | http://127.0.0.1:8080/ |
+| adminer | http://127.0.0.1:9001/ |
+
+```
+docker compose php php aritisan
+docker-compose exec php composer
+docker-compose exec redis bash
+```
