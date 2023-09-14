@@ -10,5 +10,9 @@ class MailSendController extends Controller
 {
     public function send(){
         Mail::send(new SendTestMail());
-        }
+    }
+
+    public function send_queue(){
+        Mail::queue(new SendTestMail());
+    }
 }

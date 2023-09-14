@@ -11,10 +11,14 @@ Set up
   - phpunit.xml
 - Ref: https://codelikes.com/laravel-tests/
 
+### Mail
+- Mailtrap: https://mailtrap.io/inboxes
+
 ### Command Memo
 Unit Test
 ```
 php artisan test --filter ExampleTest
+php artisan queue:work
 ```
 
 ### Env Note
@@ -24,7 +28,7 @@ php artisan test --filter ExampleTest
 | adminer | http://127.0.0.1:9001/ |
 
 ```
-docker compose php php aritisan
+docker-compose exec php php artisan
 docker-compose exec php composer
 docker-compose exec redis bash
 ```

@@ -48,6 +48,7 @@ Route::get('/', function () {
 // Laracast Laravel Horizon
 Route::get('/horizon/redis_test', [HorizonController::class, 'redis_test']);
 Route::get('/mail', [MailSendController::class, 'send']);
+Route::get('/mail/queue', [MailSendController::class, 'send_queue']);
 
 
 // Laravel advanced book
