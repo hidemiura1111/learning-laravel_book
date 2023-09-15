@@ -15,7 +15,6 @@ Set up
 - Mailtrap: https://mailtrap.io/inboxes
 
 ### Command Memo
-Unit Test
 ```
 php artisan test --filter ExampleTest
 php artisan queue:work
@@ -31,4 +30,10 @@ php artisan queue:work
 docker-compose exec php php artisan
 docker-compose exec php composer
 docker-compose exec redis bash
+```
+
+.env
+```
+QUEUE_CONNECTION=redis
+
 ```

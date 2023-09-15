@@ -28,7 +28,8 @@ class SendTestMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.test')
+        return $this
+                ->view('emails.test')
                 ->to('XXXXX@XXXXX.jp','鈴木太郎')
                 ->from('XXX@XXXX','佐藤一郎')
                 ->subject('テストメールです。');
