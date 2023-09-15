@@ -14,6 +14,12 @@ Set up
 ### Mail
 - Mailtrap: https://mailtrap.io/inboxes
 
+### Install Memo
+```
+composer require laravel/horizon --ignore-platform-reqs
+php artisan horizon:install
+```
+
 ### Command Memo
 ```
 php artisan test --filter ExampleTest
@@ -25,6 +31,7 @@ php artisan queue:work
 | ------- | ---------------------- |
 | system  | http://127.0.0.1:8080/ |
 | adminer | http://127.0.0.1:9001/ |
+| horizon | http://127.0.0.1:8080/horizon |
 
 ```
 docker-compose exec php php artisan
