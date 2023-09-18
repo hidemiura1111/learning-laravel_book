@@ -16,7 +16,7 @@ Set up
 
 ### Install Memo
 ```
-composer require laravel/horizon --ignore-platform-reqs
+composer require laravel/horizon
 php artisan horizon:install
 ```
 
@@ -24,6 +24,7 @@ php artisan horizon:install
 ```
 php artisan test --filter ExampleTest
 php artisan queue:work
+php artisan horizon
 ```
 
 ### Env Note
