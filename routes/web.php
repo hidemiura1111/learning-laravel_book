@@ -21,7 +21,7 @@ use App\Http\Controllers\ScoutController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\VueController;
-use App\Http\Controllers\HorizonController;
+use App\Http\Controllers\HorizonTestController;
 use App\Http\Controllers\MailSendController;
 
 use App\Http\Controllers\Namespace_test\NamespaceController;
@@ -46,7 +46,7 @@ Route::get('/', function () {
 });
 
 // Laracast Laravel Horizon
-Route::get('/horizon/redis_test', [HorizonController::class, 'redis_test']);
+Route::get('/horizon/redis_test', [HorizonTestController::class, 'redis_test']);
 Route::get('/mail/send', [MailSendController::class, 'send']);
 Route::get('/mail/queue', [MailSendController::class, 'send_queue']);
 

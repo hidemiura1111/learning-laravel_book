@@ -25,6 +25,7 @@ php artisan horizon:install
 php artisan test --filter ExampleTest
 php artisan queue:work
 php artisan horizon
+php artisan db:seed
 ```
 
 ### Env Note

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Redis;
 
-class HorizonController extends Controller
+class HorizonTestController extends Controller
 {
     public function redis_test()
     {
