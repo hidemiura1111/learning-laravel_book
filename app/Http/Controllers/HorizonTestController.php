@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Redis;
+use App\Models\User;
+use App\Jobs\HorizonTestJob;
 
 class HorizonTestController extends Controller
 {
@@ -13,5 +15,14 @@ class HorizonTestController extends Controller
 
         dd($name);
         return view('welcome');
+    }
+
+    public function jobs($jobs, $user)
+    {
+        $user = User::find($user);
+
+        for ($i = 0; $i < $jobs; $i++) {
+            HorizonTestJob::dispatch($user);
+        }
     }
 }

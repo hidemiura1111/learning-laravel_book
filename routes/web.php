@@ -46,9 +46,10 @@ Route::get('/', function () {
 });
 
 // Laracast Laravel Horizon
-Route::get('/horizon/redis_test', [HorizonTestController::class, 'redis_test']);
+Route::get('/horizon_test/redis_test', [HorizonTestController::class, 'redis_test']);
 Route::get('/mail/send', [MailSendController::class, 'send']);
 Route::get('/mail/queue', [MailSendController::class, 'send_queue']);
+Route::get('/horizon_test/jobs/{jobs}/{user}', [HorizonTestController::class, 'jobs']); // ex: /horizon_test/jobs/10/1
 
 
 // Laravel advanced book
