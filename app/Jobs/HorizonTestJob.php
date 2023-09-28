@@ -36,5 +36,7 @@ class HorizonTestJob implements ShouldQueue
     {
         sleep(2);
         Log::info('Job with ID: ' . $this->user->id);
+
+        // throw new \Exception('Something went wrong');
     }
 }
