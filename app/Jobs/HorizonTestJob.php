@@ -39,4 +39,12 @@ class HorizonTestJob implements ShouldQueue
 
         // throw new \Exception('Something went wrong');
     }
+
+    public function tags()
+    {
+        return ['HorizonTestJob_user-' . $this->user->id]; // Test Monitor 2 
+        // return ['HorizonTestJob']; // Test Monitor
+
+        // return ['HorizonTestJob', 'user-' . $this->user->id]; // Monitor cannot catch this tag
+    }
 }
