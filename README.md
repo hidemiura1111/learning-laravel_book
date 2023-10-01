@@ -25,7 +25,7 @@ php artisan horizon:install
 php artisan test --filter ExampleTest
 php artisan queue:work
 php artisan horizon // Start Horizon
-php artisan horizon:snapshot // Monitoring
+php artisan horizon:snapshot // Metrics
 php artisan db:seed
 ```
 
