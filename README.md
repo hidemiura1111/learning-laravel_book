@@ -16,8 +16,13 @@ Set up
 
 ### Install Memo
 ```
+// Install Horizon
 composer require laravel/horizon
 php artisan horizon:install
+
+// Create the table fot job batching
+php artisan queue:batches-table
+php artisan migrate
 ```
 
 ### Command Memo
@@ -47,3 +52,7 @@ docker-compose exec redis bash
 QUEUE_CONNECTION=redis
 
 ```
+
+### Doc memo
+- Job batching
+- https://readouble.com/laravel/8.x/ja/queues.html?header=%25E3%2583%2590%25E3%2583%2583%25E3%2583%2581%25E3%2581%25AE%25E3%2583%2587%25E3%2582%25A3%25E3%2582%25B9%25E3%2583%2591%25E3%2583%2583%25E3%2583%2581
