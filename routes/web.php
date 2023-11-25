@@ -49,7 +49,7 @@ Route::get('/', function () {
 Route::get('/horizon_test/redis_test', [HorizonTestController::class, 'redis_test']);
 Route::get('/mail/send', [MailSendController::class, 'send']);
 Route::get('/mail/queue', [MailSendController::class, 'send_queue']);
-Route::get('/horizon_test/jobs/{jobs}/{user}', [HorizonTestController::class, 'jobs']); // ex: /horizon_test/jobs/10/1
+Route::get('/horizon_test/jobs/{jobs}/{user_id}', [HorizonTestController::class, 'jobs']); // ex: /horizon_test/jobs/10/1
 Route::get('/horizon_test/batch', [HorizonTestController::class, 'batch_run']);
 
 

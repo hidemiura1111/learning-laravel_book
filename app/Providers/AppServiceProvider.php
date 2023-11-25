@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
+use App\Mail\JobFailedMailable;
 use Illuminate\Support\ServiceProvider;
 use App\MyClasses\MyService;
 use App\MyClasses\PowerMyService;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Queue;
+use Illuminate\Queue\Events\JobFailed;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -62,5 +66,10 @@ class AppServiceProvider extends ServiceProvider
         //     $obj->setId(rand(0, count($newdata)));
         // });
         // app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
+
+        // Failig for Horizon test
+        Queue::failing(function (JobFailed $event) {
+            Mail::send(new JobFailedMailable($event));
+        });
     }
 }
