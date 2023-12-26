@@ -23,6 +23,14 @@ php artisan horizon:install
 // Create the table fot job batching
 php artisan queue:batches-table
 php artisan migrate
+
+// Laravel Telescope
+composer require laravel/telescope --dev
+php artisan telescope:install
+php artisan vendor:publish --tag=telescope-migrations
+TELESCOPE_ENABLED=true // Add it to .env
+php artisan optimize
+php artisan migrate
 ```
 
 ### Command Memo
