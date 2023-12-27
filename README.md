@@ -49,11 +49,13 @@ php artisan view:clear
 ```
 
 ### Env Note
-| Tool    | URL                    |
-| ------- | ---------------------- |
-| system  | http://127.0.0.1:8080/ |
-| adminer | http://127.0.0.1:9001/ |
-| horizon | http://127.0.0.1:8080/horizon |
+| Tool      | URL                             |
+| --------- | ------------------------------- |
+| system    | http://127.0.0.1:8080/          |
+| adminer   | http://127.0.0.1:9001/          |
+| horizon   | http://127.0.0.1:8080/horizon   |
+| telescope | http://127.0.0.1:8080/telescope |
+
 
 ```
 docker-compose exec php php artisan
