@@ -16,15 +16,15 @@ Set up
 
 ### Install Memo
 ```
-// Install Horizon
+# Install Horizon
 composer require laravel/horizon
 php artisan horizon:install
 
-// Create the table fot job batching
+# Create the table fot job batching
 php artisan queue:batches-table
 php artisan migrate
 
-// Laravel Telescope
+# Laravel Telescope
 composer require laravel/telescope --dev
 php artisan telescope:install
 php artisan vendor:publish --tag=telescope-migrations
@@ -40,6 +40,12 @@ php artisan queue:work
 php artisan horizon // Start Horizon
 php artisan horizon:snapshot // Metrics
 php artisan db:seed
+
+# Clear cache
+php artisan cache:clear
+php artisan route:clear
+php artisan config:clear
+php artisan view:clear
 ```
 
 ### Env Note
