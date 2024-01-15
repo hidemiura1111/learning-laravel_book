@@ -40,6 +40,8 @@ php artisan queue:work
 php artisan horizon // Start Horizon
 php artisan horizon:snapshot // Metrics
 php artisan db:seed
+php artisan up
+php artisan down
 
 # Clear cache
 php artisan cache:clear
