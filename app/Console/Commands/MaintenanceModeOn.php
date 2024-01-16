@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class MaintenanceModeOn extends Command
 {
@@ -39,6 +40,16 @@ class MaintenanceModeOn extends Command
     public function handle()
     {
         DB::table('maintenance')->update(['start_time' => now()]);
+
+        $maintenanceTime = [
+            'start_time' => now(),
+            'end_time' => now()->addMinutes(5),
+        ];
+
+        // View does not work in Commands for 503 page
+        // view()->share('data', 'test view');
+        // View::share('maintenanceTime', $maintenanceTime);
+
         $this->call('down');
         $this->info('Maintenance mode is ON.');
     }

@@ -10,12 +10,12 @@
     <div class="container">
         <div class="content">
             <div class="title">Be Right Back</div>
-            {{-- @isset($start_time)
-                <p>Maintenance started at: {{ $start_time }}</p>
+            @isset($maintenanceTime)
+                <p>Maintenance started at: {{ $maintenanceTime['start_time'] }}</p>
             @endif
-            @isset($end_time)
-                <p>Maintenance will end at: {{ $end_time }}</p>
-            @endif --}}
+            @isset($maintenanceTime['end_time'])
+                <p>Maintenance will end at: {{ $maintenanceTime['end_time'] }}</p>
+            @endif
         </div>
     </div>
 @endsection
