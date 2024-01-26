@@ -8,6 +8,7 @@ Copy from here, https://github.com/laravel/framework/blob/10.x/src/Illuminate/Co
 Copy to vendor/laravel/framework/src/Illuminate/Contracts/Foundation/MaintenanceMode.php
 */
 use Illuminate\Contracts\Foundation\MaintenanceMode;
+use Illuminate\Filesystem\FilesystemManager;
 
 class CustomMaintenanceMode implements MaintenanceMode
 {
@@ -28,6 +29,7 @@ class CustomMaintenanceMode implements MaintenanceMode
     public function active(): bool
     {
         \Log::info('Checking if maintenance mode is active');
+        dd('custom');
         return $this->manager->disk($this->disk)->exists('down.json');
     }
 

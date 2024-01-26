@@ -138,7 +138,7 @@ return [
 
     'maintenance' => [
         'driver' => 'custom',
-        // 'store'  => 'redis',
+        'store'  => 'redis',
     ],
 
     /*
