@@ -3,12 +3,17 @@
 namespace App\Providers;
 
 use App\Mail\JobFailedMailable;
+use App\Services\CustomMaintenanceMode;
 use Illuminate\Support\ServiceProvider;
 use App\MyClasses\MyService;
 use App\MyClasses\PowerMyService;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Filesystem\FilesystemManager;
+use Illuminate\Foundation\MaintenanceModeManager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +28,21 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
         }
+
+        $this->app->extend(
+            MaintenanceModeManager::class,
+            function (MaintenanceModeManager $manager) {
+                // Add the custom driver to the maintenance mode manager, telling the 
+                $manager->extend('custom', function (Container $container) {
+                    return new CustomMaintenanceMode(
+                        $container->make(FilesystemManager::class),
+                        $container->make(Repository::class)->get('app.maintenance.disk'),
+                    );
+                });
+
+                return $manager;
+            }
+        );
     }
 
     /**
