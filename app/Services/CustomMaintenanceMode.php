@@ -4,8 +4,9 @@ namespace App\Services;
 
 /*
 MaintenanceMode file
-Copy from here, https://github.com/laravel/framework/blob/10.x/src/Illuminate/Contracts/Foundation/MaintenanceMode.php
-Copy to vendor/laravel/framework/src/Illuminate/Contracts/Foundation/MaintenanceMode.php
+Related files are not exisited in vendor. CustomMaintenanceMode is not available.
+Ref: https://articles.peterfox.me/laravel-customising-maintenance-mode-7e04cb363506
+https://github.com/laravel/framework/blob/10.x/src/Illuminate/Contracts/Foundation/MaintenanceMode.php
 */
 use Illuminate\Contracts\Foundation\MaintenanceMode;
 use Illuminate\Filesystem\FilesystemManager;
@@ -29,7 +30,7 @@ class CustomMaintenanceMode implements MaintenanceMode
     public function active(): bool
     {
         \Log::info('Checking if maintenance mode is active');
-        dd('custom');
+        // Share() for 503.blade.php is available from CustomMaintenanceMode
         return $this->manager->disk($this->disk)->exists('down.json');
     }
 
