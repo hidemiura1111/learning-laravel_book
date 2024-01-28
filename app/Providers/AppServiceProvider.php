@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Mail\JobFailedMailable;
+use App\Services\CustomMaintenanceMode;
 use Illuminate\Support\ServiceProvider;
 use App\MyClasses\MyService;
 use App\MyClasses\PowerMyService;
