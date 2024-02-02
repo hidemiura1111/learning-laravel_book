@@ -43,4 +43,10 @@ class UserController extends Controller
     {
         return UserData::collection(User::all());
     }
+
+    // 127.0.0.1:8080/api/data/users/1
+    public function show_data(User $user)
+    {
+        return UserData::from($user);
+    }
 }
