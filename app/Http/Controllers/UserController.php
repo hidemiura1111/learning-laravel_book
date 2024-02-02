@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Data\UserData;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -35,5 +36,11 @@ class UserController extends Controller
             'data' => $user,
             'message' => 'Successfully retrieved user.',
         ]);
+    }
+
+    // 127.0.0.1:8080/api/data/users
+    public function index_data()
+    {
+        return UserData::collection(User::all());
     }
 }

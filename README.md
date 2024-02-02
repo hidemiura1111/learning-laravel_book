@@ -31,6 +31,9 @@ php artisan vendor:publish --tag=telescope-migrations
 TELESCOPE_ENABLED=true // Add it to .env
 php artisan optimize
 php artisan migrate
+
+# Spatie, Laravel-Data
+composer require spatie/laravel-data
 ```
 
 ### Command Memo
@@ -68,9 +71,13 @@ docker-compose exec redis bash
 .env
 ```
 QUEUE_CONNECTION=redis
-
 ```
 
 ### Doc memo
 - Job batching
 - https://readouble.com/laravel/8.x/ja/queues.html?header=%25E3%2583%2590%25E3%2583%2583%25E3%2583%2581%25E3%2581%25AE%25E3%2583%2587%25E3%2582%25A3%25E3%2582%25B9%25E3%2583%2591%25E3%2583%2583%25E3%2583%2581
+- Spatie, Laravel-Data
+- Docs:
+  - Install: https://spatie.be/docs/laravel-data/v3/installation-setup
+  - Quick Start: https://spatie.be/docs/laravel-data/v3/getting-started/quickstart
+- Youtube: https://www.youtube.com/watch?v=CrO_7Df1cBc

@@ -21,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{user}', [UserController::class, 'show']);
+
+// Laravel-Data
+Route::get('/data/users', [UserController::class, 'index_data']);
+Route::get('/data/users/{user}', [UserController::class, 'show_data']);
