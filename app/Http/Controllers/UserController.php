@@ -41,6 +41,7 @@ class UserController extends Controller
     // 127.0.0.1:8080/api/data/users
     public function index_data()
     {
+        dd(User::all());
         return UserData::collection(User::all());
     }
 
@@ -49,4 +50,23 @@ class UserController extends Controller
     {
         return UserData::from($user);
     }
+
+    // 127.0.0.1:8080/api/data/users
+    public function create_data(Request $request)
+    {
+        dd($request->all());
+    }
+    
+    // 127.0.0.1:8080/api/data/users/1
+    public function update_data(User $user, UserData $userData)
+    {
+        dd(User::all());
+        \Log::info($user->all());
+        \Log::info($userData->all());
+
+        $res = $user->update($userData->all());
+
+        return $res;
+    }
+
 }
