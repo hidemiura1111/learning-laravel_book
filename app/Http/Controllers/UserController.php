@@ -66,4 +66,10 @@ class UserController extends Controller
         return $res;
     }
 
+    // Check validation rule
+    public function check_validation(Request $request)
+    {
+        dd(UserData::getValidationRules($request->toArray()));
+    }
+
 }
