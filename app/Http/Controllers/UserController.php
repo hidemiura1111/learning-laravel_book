@@ -58,11 +58,9 @@ class UserController extends Controller
         return $res;
     }
     
-    // 127.0.0.1:8080/api/data/users/1
+    // PUT: 127.0.0.1:8080/api/data/users/1
     public function update_data(User $user, UserData $userData)
     {
-        dd(User::all());
-
         $res = $user->update($userData->all());
 
         return $res;
