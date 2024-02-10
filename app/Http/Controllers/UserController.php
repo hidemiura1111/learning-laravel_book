@@ -41,7 +41,8 @@ class UserController extends Controller
     // 127.0.0.1:8080/api/data/users
     public function index_data()
     {
-        return UserData::collection(User::all());
+        return UserData::collection(User::all())
+            ->except('email_verified_at');
     }
 
     // 127.0.0.1:8080/api/data/users/1
