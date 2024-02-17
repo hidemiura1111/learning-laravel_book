@@ -29,7 +29,6 @@ class UserData extends Data
             $user->email,
             $user->email_verified_at,
             'Hidden',
-            $number_of_attempt,
         );
     }
 }
