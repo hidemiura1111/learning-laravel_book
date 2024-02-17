@@ -6,6 +6,7 @@ use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Attributes\Validation\Email;
 use Spatie\LaravelData\Attributes\Validation\Rule;
 use Spatie\LaravelData\Optional;
+use App\Models\User;
 
 class UserData extends Data
 {
@@ -19,5 +20,15 @@ class UserData extends Data
         public ?string $email_verified_at,
         public string|Optional $password,
     ) {
+    }
+
+    public static function fromModel(User $user): self
+    {
+        return new self(
+            "{$user->name} ({$user->id})",
+            $user->email,
+            $user->email_verified_at,
+            'Hidden',
+        );
     }
 }
