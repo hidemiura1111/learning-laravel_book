@@ -2,11 +2,11 @@
 
 namespace App\Http\Data;
 
+use App\Models\User;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Attributes\Validation\Email;
 use Spatie\LaravelData\Attributes\Validation\Rule;
 use Spatie\LaravelData\Optional;
-use App\Models\User;
 
 class UserData extends Data
 {
@@ -29,6 +29,7 @@ class UserData extends Data
             $user->email,
             $user->email_verified_at,
             'Hidden',
+            $number_of_attempt,
         );
     }
 }
